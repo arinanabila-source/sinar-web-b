@@ -1,0 +1,249 @@
+@import "tailwindcss";
+
+/* =====================================
+   SINAR PREMIUM DESIGN SYSTEM
+===================================== */
+
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  --background: #f5f2ea;
+  --foreground: #172b3a;
+
+  --primary: #172b3a;
+  --primary-hover: #263f52;
+
+  --secondary: #e5ebed;
+  --accent: #d5b66b;
+  --accent-hover: #be9d50;
+
+  --surface: #ffffff;
+  --surface-secondary: #edf1f2;
+
+  --border: #dce2e3;
+  --muted: #71808a;
+
+  --success: #477a63;
+  --danger: #b85c55;
+
+  --navbar: #172b3a;
+  --navbar-text: #f5f2ea;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --background: #111c29;
+  --foreground: #f1f4f7;
+
+  --primary: #20364a;
+  --primary-hover: #2b455d;
+
+  --secondary: #293e50;
+  --accent: #d5b66b;
+  --accent-hover: #e5c981;
+
+  --surface: #1c2b3a;
+  --surface-secondary: #243748;
+
+  --border: #35495b;
+  --muted: #a9b9c9;
+
+  --success: #80b69a;
+  --danger: #e28b83;
+
+  --navbar: #0d1722;
+  --navbar-text: #f1f4f7;
+}
+
+/* =====================================
+   TAILWIND THEME VARIABLES
+===================================== */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* =====================================
+   GLOBAL BASE
+===================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* =====================================
+   PREMIUM SCROLLBAR
+===================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-secondary);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* =====================================
+   TEXT SELECTION
+===================================== */
+
+::selection {
+  background: var(--accent);
+  color: #172b3a;
+}
+
+/* =====================================
+   BUTTONS
+===================================== */
+
+button {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+/* =====================================
+   FORM ELEMENTS
+===================================== */
+
+input,
+textarea,
+select {
+  accent-color: var(--accent);
+}
+
+input,
+textarea,
+select {
+  color: var(--foreground);
+}
+
+/* =====================================
+   CHROME AUTOFILL
+===================================== */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px var(--surface) inset !important;
+  box-shadow: 0 0 0 1000px var(--surface) inset !important;
+  -webkit-text-fill-color: var(--foreground) !important;
+  caret-color: var(--foreground) !important;
+  transition: background-color 999999s ease-in-out 0s;
+}
+
+/* =====================================
+   PRINT
+===================================== */
+
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 12mm;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  nav,
+  footer,
+  button,
+  .print\:hidden {
+    display: none !important;
+  }
+
+  main {
+    background: white !important;
+    color: black !important;
+    min-height: auto !important;
+  }
+
+  section {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  section > div:first-child {
+    display: none !important;
+  }
+
+  section > div:nth-child(2) {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+  }
+
+  h1,
+  h2 {
+    color: black !important;
+  }
+
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+  }
+
+  th,
+  td {
+    border: 1px solid #999 !important;
+    color: black !important;
+    padding: 8px !important;
+  }
+}
+
+.fixed input,
+.fixed select,
+.fixed textarea,
+.bg-white input,
+.bg-white select,
+.bg-white textarea {
+  color: #111827 !important;
+  -webkit-text-fill-color: #111827 !important;
+}
+
+.fixed input::placeholder,
+.fixed textarea::placeholder,
+.bg-white input::placeholder,
+.bg-white textarea::placeholder {
+  color: #6b7280 !important;
+  -webkit-text-fill-color: #6b7280 !important;
+}
